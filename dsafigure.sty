@@ -1,0 +1,289 @@
+%% This is file `dsafigure.sty' generated with the docstrip utility.
+%% For copyright and distribution information see `dsafigure.dtx'.
+%% Version vom 30.10.2008
+\raggedbottom
+\def\df@assignvbox#1#2%
+  {\global\setbox#1=\vbox{\unvbox#2}}
+\def\df@defenv#1[#2]#3%
+  {\@namedef{#1}{\df@parse{#1}{#2}{#3}}%
+   \@namedef{end#1}{\par\unskip\strut\par\vskip-\baselineskip\egroup\df@do\egroup}}
+\def\df@parse#1#2#3%
+  {\bgroup
+   \df@setbotfloatcorramount% FIXME kludge ...
+   \@ifnextchar[%
+    {\df@doparse{#1}{#3}}%
+    {\df@doparse{#1}{#3}[#2]}}
+\def\df@doparse#1#2[#3]%
+  {\expandafter\let\expandafter\df@do\csname #1@#3\endcsname
+   \ifx\df@do\relax
+     \@latexerr{Unknown #1 style '#3'.\MessageBreak
+                Sorry, I will have to ignore the figure.}%
+   \fi
+   \setbox0=\vbox\bgroup#2}
+\def\df@doiffirstcolumn%
+  {\if@firstcolumn
+     \expandafter\@firstoftwo
+   \else
+     \expandafter\@secondoftwo
+   \fi}
+
+\def\df@doifspaceleft#1%
+  {\bgroup
+             \dimen@ \pagegoal
+     \advance\dimen@-\pagetotal
+     \ifdim\dimen@>#1\relax
+       \global\let\df@dodoifspaceleft\@firstoftwo
+     \else
+       \global\let\df@dodoifspaceleft\@secondoftwo
+     \fi
+   \egroup
+   \df@dodoifspaceleft}
+\newinsert\df@insert
+\skip \df@insert=\z@
+\count\df@insert=\@m
+\dimen\df@insert=\maxdimen
+\newbox\df@topthis
+\newbox\df@topnext
+\newbox\df@botthis
+
+\newbox\df@wtopthis
+\newbox\df@wtopnext
+\newbox\df@wbotthis
+\def\df@updateinsert%
+  {\bgroup
+           \dimen@\ht\df@topthis
+   \advance\dimen@\ht\df@botthis
+   \advance\dimen@\ht\df@wtopthis
+   \advance\dimen@\ht\df@wbotthis
+   \setbox0=\box\df@insert
+   \ifdim\dimen@>\z@
+     \insert\df@insert{\vskip\dimen@}%
+   \fi
+   \egroup}
+\gdef\@specialoutput
+  {\ifnum\outputpenalty>-\@Mii
+     \df@updateinsert
+     \@doclearpage
+   \else
+     \ifnum\outputpenalty<-\@Miii
+       \ifnum\outputpenalty<-\@MM \deadcycles\z@\fi
+       \global\setbox\@holdpg \vbox{\unvbox\@cclv}%
+     \else
+       \global\setbox\@holdpg \vbox
+         {\unvbox\@holdpg
+          \unvbox\@cclv
+          \setbox\@tempboxa\lastbox
+          \unskip}%
+       \df@updateinsert
+       \@reinserts
+       \unvbox\@holdpg
+       \if@nobreak
+         \nobreak
+       \else
+         \addpenalty\interlinepenalty
+       \fi
+     \fi
+   \fi}
+\gdef\@makecol
+  {\ifvoid\footins
+     \setbox\@outputbox\box\@cclv
+   \else
+     \setbox\@outputbox\vbox
+       {\boxmaxdepth\@maxdepth
+        \@tempdima\dp\@cclv
+        \unvbox\@cclv
+        \vskip\skip\footins
+        \color@begingroup
+          \normalcolor
+          \footnoterule
+          \unvbox\footins
+        \color@endgroup}%
+   \fi
+   \setbox\@outputbox\vbox to\@colht
+     {\@texttop
+      \df@doiffirstcolumn
+        \df@makefirstcol
+        \df@makesecondcol
+      \@textbottom}%
+   \global\maxdepth\@maxdepth
+   \df@updateinsert}
+\def\df@boxoutputbox%
+  {\dimen@\dp\@outputbox
+   \box\@outputbox
+   \vskip-\dimen@}
+\def\df@setbotfloatcorramount%
+  {\dimen@\textwidth
+   \advance\dimen@-\columnwidth
+   \xdef\df@botfloatcorramount{\the\dimen@}}
+\df@setbotfloatcorramount% FIXME kludge ...
+\def\df@makefirstcol%
+  {\ifvoid\df@wtopthis\else
+     \copy\df@wtopthis
+     \nointerlineskip
+   \fi
+   \ifvoid\df@topthis\else
+     \box\df@topthis
+     \nointerlineskip
+   \fi
+   \df@boxoutputbox
+   \ifvoid\df@botthis\else
+     \box\df@botthis
+     \nointerlineskip
+   \fi
+   \vskip\ht\df@wbotthis
+   \df@assignvbox\df@topthis\df@topnext}
+\def\df@makesecondcol%
+  {\vskip\ht\df@wtopthis
+   \ifvoid\df@topthis\else
+     \box\df@topthis
+     \nointerlineskip
+   \fi
+   \df@boxoutputbox
+   \ifvoid\df@botthis\else
+     \box\df@botthis
+     \nointerlineskip
+   \fi
+   \moveleft\df@botfloatcorramount\box\df@wbotthis
+   \df@assignvbox\df@topthis\df@topnext
+   \df@assignvbox\df@wtopthis\df@wtopnext}
+\def\df@triggeroutput%
+  {\par\penalty-\@Miv\vbox{}\penalty-\@Miii}
+\def\df@triggeroutput%
+  {\par
+   \ifdim\prevdepth>-1000pt
+     \vskip-\prevdepth \nobreak
+   \fi
+   \penalty-\@Miv\vbox{}\penalty-\@Miii}
+\df@defenv{dsafigure}[default]%
+  {\df@setcaptiontype{fig}\@parboxrestore}
+\df@defenv{dsatable}[default]%
+  {\df@setcaptiontype{tab}\@parboxrestore}
+
+\def\dsafigure@default
+  {\df@doifspaceleft{\ht0}% FIXME FIXME spacing?
+     \dsafigure@here
+     \dsafigure@top}
+\let\dsatable@default\dsafigure@default
+
+\def\dsafigure@bottom
+  {\df@doifspaceleft{\ht0}% FIXME FIXME spacing?
+     \dsafigure@really@bottom
+     \dsafigure@top}
+\let\dsatable@bottom\dsafigure@bottom
+
+\def\dsafigure@here
+  {\df@alignbox0
+   \dimen@\ht0
+   \noindent\null\par\nobreak
+   \box0
+   \vskip\baselineskip}
+\let\dsatable@here\dsafigure@here
+
+\def\dsafigure@top
+  {\global\setbox\df@topnext=\vbox
+    {\df@alignbox0
+     \unvbox\df@topnext
+     \box0
+     \vskip\baselineskip}%
+   \df@triggeroutput}
+\let\dsatable@top\dsafigure@top
+
+\def\dsafigure@really@bottom
+  {\global\setbox\df@botthis=\vbox
+    {% no \df@alignbox0 to keep it at the bottom
+     \unvbox\df@botthis
+     \vskip\baselineskip
+     \box0 }%
+   \df@triggeroutput}
+
+\df@defenv{dsafigurewide}[top]%
+  {\df@setcaptiontype{fig}\@parboxrestore\hsize\textwidth}
+\df@defenv{dsatablewide}[top]%
+  {\df@setcaptiontype{tab}\@parboxrestore\hsize\textwidth}
+
+\def\dsafigurewide@bottom
+  {\df@doiffirstcolumn
+     {\df@doifspaceleft{\ht0}
+        \dsafigurewide@really@bottom
+        \dsafigurewide@top}%
+      \dsafigurewide@top}
+\let\dsatablewide@bottom\dsafigurewide@bottom
+
+\def\dsafigurewide@top
+  {\global\setbox\df@wtopnext=\vbox
+    {\df@alignbox0
+     \unvbox\df@wtopnext
+     \box0
+     \vskip\baselineskip}%
+   \df@triggeroutput}
+\let\dsatablewide@top\dsafigurewide@top
+
+\def\dsafigurewide@really@bottom
+  {\global\setbox\df@wbotthis=\vbox
+    {% no \df@alignbox0 to keep it at the bottom
+     \unvbox\df@wbotthis
+     \vskip\baselineskip
+     \box0 }%
+   \df@triggeroutput}
+
+\def\df@alignbox#1%
+  {\bgroup
+           \dimen@\ht#1
+   \advance\dimen@\dp#1
+   \advance\dimen@\baselineskip
+   \advance\dimen@-1sp
+   \divide  \dimen@\baselineskip
+   \multiply\dimen@\baselineskip
+   \xdef\df@doalignbox%
+     {\ht#1=\the\dimen@ \dp#1=\z@}%
+   \egroup
+   \df@doalignbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcount\df@index
+\def\@@df@fignum{@@df@fignum}
+\def\setcaptionprefix%
+  {\gdef\df@captionprefix}
+\let\df@captionprefix\empty
+\def\df@setcaptiontype%
+  {\def\df@captiontype}
+\let\df@captiontype\empty
+\def\setfiglabel{\def\df@fig@label}\setfiglabel{Abb.}%
+\def\settablabel{\def\df@tab@label}\settablabel{Tab.}%
+\def\df@getlabel{\csname df@\df@captiontype @label\endcsname}%
+\def\df@declare@float%
+  {\edef\df@declare@args%
+     {{\the\df@index}{\df@captiontype}{\df@captionprefix}}
+   \expandafter\df@dodeclare@float\df@declare@args\end}
+\def\df@dodeclare@float#1\end%
+  {\write\@auxout{\noexpand\df@numberfloat#1}}
+\def\df@numberfloat#1#2#3%
+  {\count@0\@nameuse{\@@df@fignum:#3:#2}\relax
+   \advance\count@\@ne
+   \expandafter\edef\csname\@@df@fignum:#3:#2\endcsname{\the\count@}%
+   \advance\df@index\@ne
+   \expandafter\xdef\csname\@@df@fignum-#1\endcsname
+     {#3\the\count@}}
+\AtBeginDocument
+  {\immediate\write\@auxout{\global\df@index\z@}}
+
+\def\caption%
+  {\@ifstar
+     \docaption
+     \dodocaption}
+
+\def\docaption#1%
+  {\bgroup\par\centering\small\it#1\par\egroup}
+
+\def\dodocaption#1%
+  {\global\advance\df@index\@ne
+   \df@declare@float
+   \expandafter\ifx\csname\@@df@fignum-\the\df@index\endcsname\relax
+      \def\@currentlabel{0.0}%
+   \else
+     \protected@edef\@currentlabel%
+       {\@nameuse{\@@df@fignum-\the\df@index}}%
+   \fi
+   \docaption{\df@getlabel~\@currentlabel: #1}}
+\endinput
+%%
+%% End of file `dsafigure.sty'.

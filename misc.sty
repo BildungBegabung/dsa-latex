@@ -1,0 +1,17 @@
+\NeedsTeXFormat{LaTeX2e}[1995/12/01]
+\ProvidesPackage{misc}[2004/09/01 Verschiedenes ...]
+
+%
+% Hier kommen alle möglichen, für den Satz von Dokus nützlichen aber
+% für ein eigenes Paket zu kleinen Definitionen hin.
+%
+
+\RequirePackage{url}
+
+% nfrac
+
+\newcommand{\nfrac}[2]%
+  {\leavevmode\kern.1em\raise.5ex\hbox{\scriptsize $#1$}%
+   \kern-.1em/\kern-.15em\lower.25ex\hbox{\scriptsize $#2$}}
+
+\endinput

@@ -1,0 +1,63 @@
+\documentclass{newlayout}
+%Bitte hier den enstprechenden Ort einsetzen z.B. Braunschweig und die Akademienummer
+\Akademie{Ort}{2014}{1}
+
+\usepackage[english,ngerman]{babel}
+\usepackage{misc}
+\usepackage{multicol}
+
+%\usepackage{amsmath}%wird automatisch durch newlayout.cls geladen
+\usepackage{amsfonts}
+
+%%%%%Mathe-Definitionen
+\newtheorem{Def}{Definition}
+\newtheorem{Sat}{Satz}
+\newtheorem{Bew}{Beweis}
+
+%%%%Ende Mathe-Definitionen
+
+\begin{document}
+
+ %   \input{titel}
+ \setcounter{page}{3}
+
+\setcounter{tocdepth}{1}
+ \tableofcontents
+
+   \setcounter{secnumdepth}{1}
+
+
+\setcounter{page}{7}
+\setcounter{chapter}{0}
+
+%Angabe, bis zu welcher Stufe die sections im Text nummeriert werden sollen.
+      \settocdepth{2}
+
+
+
+\course{1}{Kurstitel eingeben}%%% 
+\begin{coursetitle}
+  \centerline{Kurstitel eingeben} 
+  \bigskip
+  \Large \centerline{Kursuntertitel eingeben}
+  \bigskip
+ \includegraphics[width=.9\columnwidth]{Titelbild-fehlt.png}
+ \label{fig:meinbild}
+  \bigskip
+\end{coursetitle}
+%\begin{dsafigure}
+%\begin{center}
+%\includegraphics[width=.9\columnwidth]{Titelbild-fehlt.png}
+%\caption{meine Bildunterschrift}
+%label{fig:meinbild}
+%\end{center}
+%\end{dsafigure}
+
+
+
+
+\input{Kapitel-1-Aus-der-Kursbeschreibung}
+%\input{Kapitel-2-Kapitelüberschrift}
+%\input{Kapitel-3-Kapitelüberschrift}
+%usw.
+\end{document}

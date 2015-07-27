@@ -9,11 +9,34 @@
 %\usepackage{amsmath}%wird automatisch durch newlayout.cls geladen
 \usepackage{amsfonts}
 
+\usepackage{url}
+\def\UrlBreaks{\do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l%
+\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z\do\0%
+\do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9\do\-\do\_\do\/\do\%}
+\urlstyle{same}
+
+% hinzugefügt, um Fehler 'pdfTeX error (font expansion): auto expansion is only possible with scalable' zu vermeiden
+%\usepackage{lmodern}
+\setkomafont{descriptionlabel}{\normalfont\bfseries}
+\addtokomafont{paragraph}{\normalfont}
+\usepackage{footnote}
+\usepackage[flushmargin,hang,ragged]{footmisc}
+\deffootnote{1em}{1em}{%
+\textsuperscript{\thefootnotemark\ }
+}
+%\setlength{\abovedisplayskip}{5pt}
+%\setlength{\belowdisplayskip}{5pt}
+
+
 %%%%%Mathe-Definitionen
 \newtheorem{Def}{Definition}
 \newtheorem{Sat}{Satz}
 \newtheorem{Bew}{Beweis}
 
+\setlength\abovedisplayshortskip{0pt}
+\setlength\belowdisplayshortskip{0pt}
+\setlength\abovedisplayskip{3pt}
+\setlength\belowdisplayskip{3pt}
 %%%%Ende Mathe-Definitionen
 
 \begin{document}

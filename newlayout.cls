@@ -1,4 +1,4 @@
-%% 
+%%
 %% LaTeX2e-Dokumentenklasse für neues BuB-Doku-Layout
 %% Stand 17.04.2009
 %%
@@ -99,7 +99,7 @@
 
 %% Hier wird's experimentell: Abbildungen
 
-\RequirePackage{dsafigure}
+\RequirePackage{dsa-latex/dsafigure}
 \setcaptionprefix{\thecourseno.}
 
 %% Überschriften oder was dafür durchgeht
@@ -139,7 +139,7 @@
    \fi
    \bgroup
      \raggedright\def\\{\hfil\break}%
-     \interlinepenalty\@M 
+     \interlinepenalty\@M
      \setbox0=\hbox{\normalfont#4#5\unskip\enskip}%
      \setbox2=\hbox{\normalfont#4\@nameuse{the#1}\unskip}%
      \if@hasnumber\else

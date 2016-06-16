@@ -1,0 +1,53 @@
+\section{Formelsatz}
+
+\subsection*{In einer Formelumgebung}
+abgesetzte, (nummerierte), referenzierbare Formel
+
+\begin{lstlisting}
+\begin{equation}
+ \label{Satz_des_Pythagoras}      % optional
+ a^2 + b^2 = c^2
+\end{equation}
+\end{lstlisting}
+
+\begin{equation}
+ \label{Satz_des_Pythagoras}      % optional
+ a^2 + b^2 = c^2
+\end{equation}
+
+\begin{lstlisting}
+\begin{equation*}
+ c \le a + b
+\end{equation*}
+\end{lstlisting}
+
+\begin{equation*}
+ c \le a + b
+\end{equation*}
+
+\subsection*{Im Fließtext}
+Einrahmung der Formel durch \$Formel\$
+
+\begin{lstlisting}
+Aus dem Satz des Pythagoras (siehe Gleichung \ref{Satz_des_Pythagoras}) laesst
+sich die Laenge der Hypotenuse zu $c = \sqrt{a^2 + b^2}$ bestimmen.
+\end{lstlisting}
+
+Aus dem Satz des Pythagoras (siehe Gleichung \ref{Satz_des_Pythagoras}) lässt
+sich die Länge der Hypotenuse zu $c = \sqrt{a^2 + b^2}$ bestimmen.
+
+
+\subsection{Chemische Formeln im Fließtext}
+\begin{itemize}
+ \item Elementsymbole werden in normaler Schrift geschrieben: H, C, O, N, Xe, ...
+ \item Anzahlen und Ladungen werden in der Matheumgebung notiert
+\end{itemize}
+
+\begin{lstlisting}
+Bei der Autoprotolyse des Wassers entstehen Hydroniumionen H$_{3}$O$^{+}$ und
+Hydroxidionen OH$^{-}$.
+\end{lstlisting}
+
+Bei der Autoprotolyse des Wassers entstehen Hydroniumionen H$_{3}$O$^{+}$ und
+Hydroxidionen OH$^{-}$.
+

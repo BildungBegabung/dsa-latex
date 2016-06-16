@@ -1,0 +1,50 @@
+\section{Tabellen}
+Tabellen befinden sich in Tabellenumgebungenen, die
+aus mehreren Elementen bestehen. Sie haben:
+
+\begin{itemize}
+ \item eine Überschrift \lstinline$\caption{}$
+ \item ein Label (auf alle(!) Tabellen muss im Text verwiesen werden)
+       \lstinline$\label{}$
+ \item die Tabelle selbst
+ \begin{itemize}
+  \item Anzahl der Spalten, die jeweils linksbündig \lstinline$l$, zentriert
+        \lstinline$c$ oder rechtsbündig \lstinline$r$ sein können
+  \item Spalten werden mit \lstinline$&$ getrennt
+  \item am Ende jeder Zeile steht \lstinline$\\$
+ \end{itemize}
+\end{itemize}
+
+\begin{lstlisting}
+\begin{table}[h]
+ \caption{Dieses ist unsere Beispieltabelle. Der Inhalt ist weder relevant noch
+          zutreffend.}
+ \centering
+ \begin{tabular}{lcr} % drei Spalten
+  \toprule
+   Kurs      & blaue Augen & braune Augen\\
+  \midrule
+   5.1       & 4           & 10\\
+   5.2       & 7           & 9\\
+   5.3       & 15          & 1\\
+  \bottomrule
+ \end{tabular}
+ \label{table:beispiel}
+\end{table}
+\end{lstlisting}
+
+\begin{table}[h]
+ \caption{Dieses ist unsere Beispieltabelle. Der Inhalt ist weder relevant noch
+          zutreffend.}
+ \centering
+ \begin{tabular}{lcr} % drei Spalten
+  \toprule
+   Kurs      & blaue Augen & braune Augen\\
+  \midrule
+   5.1       & 4           & 10\\
+   5.2       & 7           & 9\\
+   5.3       & 15          & 1\\
+  \bottomrule
+ \end{tabular}
+ \label{table:beispiel}
+\end{table}

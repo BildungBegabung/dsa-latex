@@ -1,0 +1,59 @@
+\documentclass{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman,english]{babel}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{units}
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+   backgroundcolor=\color{lightgray},
+   basicstyle=\scriptsize\ttfamily,
+   keywordstyle=\bfseries\ttfamily\color{orange},
+   stringstyle=\color{green}\ttfamily,
+   commentstyle=\color{middlegray}\ttfamily,
+   emph={square}, 
+   emphstyle=\color{blue}\texttt,
+   emph={[2]root,base},
+   emphstyle={[2]\color{yac}\texttt},
+   showstringspaces=false,
+   flexiblecolumns=false,
+   tabsize=2,
+   numbers=left,
+   numberstyle=\tiny,
+   numberblanklines=false,
+   stepnumber=1,
+   numbersep=10pt,
+   xleftmargin=15pt
+ }
+
+\parindent0mm
+
+\renewcommand*\labelitemi{\normalfont\bfseries\textendash}
+
+\title{Merkzettel \LaTeX}
+\author{Elke Faßhauer}
+\date{DSA Rossleben 2015}
+
+\begin{document}
+
+\maketitle
+
+\input{hauptdokument}
+\input{abschnitte}
+\input{formeln}
+\input{aufzaehlungen}
+\input{tabellen}
+\input{abbildungen}
+\input{verweise}
+
+\input{zitieren}
+
+\bibliographystyle{jcpsty_deutsch}
+\bibliography{lit2}
+
+\end{document}

@@ -1,0 +1,61 @@
+\section{Zitieren mit bibtex}
+
+\begin{itemize}
+ \item Einträge in Name.bib Datei verwalten
+ \item Literaturbibliothek in Hauptdatei einbauen
+ \item mit \lstinline$\cite{}$ zitieren
+\end{itemize}
+
+Hauptdatei:
+\begin{lstlisting}
+%Pakete, Inhalte, usw.
+\input{zitieren}
+
+\bibliographystyle{unsrtdin}
+\bibliography{lit2}
+
+\end{document}
+\end{lstlisting}
+
+Bibliothekendatei Name.bib (hier lit2.bib)
+\begin{lstlisting}
+@ARTICLE{Fasshauer13,
+  author = {Fasshauer, E. and Pernpointner, M. and Gokhberg, K.},
+  title = {Interatomic Decay of Inner-Valence Ionized States in ArXe Clusters:
+        Relativistic Approach},
+  journal = {J. Chem. Phys.},
+  year = {2013},
+  volume = {138},
+  pages = {014305},
+}
+
+@BOOK{SakuraiModern94,
+  title = {Modern Quantum Mechanics},
+  publisher = {Addison-Wesley},
+  year = {1994},
+  editor = {Tuan, S. F.},
+  author = {Sakurai, J. J.},
+  edition = {Rev.},
+}
+
+@MISC{Nobelpreis,
+  author = {Various Artist},
+  title = {Development of the metathesis method in organic synthesis},
+        url = {http://www.nobelprize.org/nobel\_prizes/chemistry/laureates/2005/advanced-chemistryprize2005.pdf},
+        howpublished = {http://www.nobelprize.org/nobel\_prizes/ chemistry/laureates/2005/advanced-chemistryprize2005.pdf},
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+Diese Eintraege sind im Fliesstext selber nicht zu sehen. Wenn man jedoch das
+Buch \cite{SakuraiModern94}, den Artikel \cite{Fasshauer13} 
+oder den Onlineartikel \cite{Nobelpreis} zitiert,
+werden die Nummern automatisch eingefuegt und ein Literaturverzeichnis am Ende
+des Dokumentes erstellt.
+\end{lstlisting}
+
+Diese Einträge sind im Fließtext selber nicht zu sehen. Wenn man jedoch das
+Buch \cite{SakuraiModern94}, den Artikel \cite{Fasshauer13} oder den
+Onlineartikel \cite{Nobelpreis} zitiert,
+werden die Nummern automatisch eingefügt und ein Literaturverzeichnis am Ende
+des Dokumentes erstellt.

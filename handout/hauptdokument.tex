@@ -1,0 +1,40 @@
+\section{Struktur des Hauptdokumentes}
+
+\begin{itemize}
+ \item Wahl Art des Dokumentes mit \lstinline$\documentclass{}$, z.B.
+       \lstinline$scrbook$, \lstinline$scrartcl$, \lstinline$beamer$, ...
+ \item Einbinden verschiedener Pakete mit \lstinline$\usepackage[]{}$
+ \item Inhalt umrahmt von \lstinline$\begin{document} ... \end{document}$
+\end{itemize}
+
+\begin{lstlisting}
+\documentclass{scrartcl}
+\usepackage[utf8]{inputenc}                 % Zeichencodierung
+\usepackage{tabularx}                       % Tabellen
+\usepackage{booktabs}                       % eleganter formatierte Tabellen
+\usepackage{amsmath,amsfonts,amssymb}       % Matheumgebung und Symbole
+\usepackage{graphicx}                       % Grafiken
+\usepackage{units}                          % Setzen von Werten mit Einheiten
+\usepackage{ngerman}                        % Verwende deutschen Zeilenumbruch
+
+\begin{document}
+ Inhalt
+\end{document}
+\end{lstlisting}
+
+Der Inhalt kann, muss aber nicht im gleichen Dokument zu finden sein. Ab einer
+Gesamtlänge des kompilierten Inhaltes von einer Seite, empfiehlt es sich, den Inhalt
+in andere Dateien auszulagern und diese mit \lstinline$\input{}$ oder
+\lstinline$\include{}$ einzubinden:
+
+\begin{lstlisting}
+%allerlei Pakete
+
+\begin{document}
+
+ \input{hauptdokument}                  % Datei hauptdokument.tex einfuegen
+ \include{hauptdokument}                % auf neuer Seite einfuegen
+
+\end{document}
+
+\end{lstlisting}
